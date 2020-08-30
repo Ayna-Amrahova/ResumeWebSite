@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <link rel = "stylesheet" th:href="@{/resume.css}"/>
+  <link rel='stylesheet' id='glitche-fonts-css'
+  href='https://fonts.googleapis.com/css?family=Roboto+Mono%3A400%2C100%2C300italic%2C300%2C100italic%2C400italic%2C500%2C500italic%2C700%2C700italic%7CRoboto%3A100%2C100italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C700%2C700italic%2C900%2C900italic&#038;subset=latin%2Clatin-ext'
+  type='text/css' media='all' />
+  <title>Resume</title>
+  <link rel="stylesheet" href="http://www.w3schools.com/lib/w3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script type="text/javascript" th:src="@{/resume.js}">  </script>
+  
+</head>
+<body style="background-color: #31313A">
+
+
+  <div id="left"></div>
+  <div id="right"></div>
+  <div id="top"></div>
+  <div id="bottom">
+    <div class="row">
+		<div th:each = "logo : ${logo}">
+      		<a target="" th:href="${logo.link}">
+       			<img th:src="@{/images/{image}(image=${logo.imgPath})}" th:id="${logo.name}">
+     		 </a>
+      	</div>
+    </div>
+  </div>
+
+  <div class="header" id="header">
+   <div class="nav" id="nav">
+  <p id="nav1"><a target="" id="nav1" href="http://localhost:9080/ResumeProject/home"> Home  </a> </p>
+  <p id="nav2"><a target="" id="nav2" href="http://localhost:9080/ResumeProject/resume"> Resume  </a> </p>
+  <p id="nav4"><a target="" id="nav4" href="http://localhost:9080/ResumeProject/contact"> Contact  </a> </p>
+      <script type="text/javascript">
+      window.onscroll = function (){
+          myFunction();
+        };
+
+        var header = document.getElementById("header");
+        var sticky = header.offsetTop;
+
+        function myFunction(){
+          if (window.pageYOffset > sticky) {
+            header.classList.add("sticky");
+          }else {
+            header.classList.remove("sticky");
+          }
+        }
+     
+        
+      </script>
+    </div>
+  </div>
+
+
+
+  <div class="started-content">
+    <h1 class="h-title glitch-effect" data-text="RESUME" id="span1">RESUME</h1>
+    <p id="roadmap"> <a target="" id="home" href="http://localhost:9080/ResumeProject/home"> Home</a>/Resume </p>
+  </div>
+
+  <div class="container">
+
+
+    <div class="about">
+    
+		<div th:each = "about : ${about}">
+      		<span id="aboutme">  <p id="about" th:utext  = "${about.title}"> </p></span><br>
+       			<p id="info"> <img th:src="@{/images/{image}(image=${about.imgPath})}" alt="My image" id="me" th:utext  = "${about.text}"> </p><br>
+     		 
+      	</div>
+      
+
+        <div class="data" th:each = "about : ${about}">
+          <div class="row">
+            <div class="row">
+              <div class="col-md-4" id="column1">
+                <p th:utext  = "${about.infoAge}"></p>
+                <p th:utext  = "${about.infoAddress}"></p>
+              </div>
+              <div class="col-md-4" id="column2">
+                <p th:utext  = "${about.age}"></p>
+                <p th:utext  = "${about.address}"></p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-md-4" id="column3">
+                <p th:utext  = "${about.infoPhone}"></p>
+                <p th:utext  = "${about.infoEmail}"></p>
+              </div>
+              <div class="col-md-4" id="column4">
+                <p th:utext  = "${about.phone}"></p>
+                <p th:utext  = "${about.email}"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+
+
+        <div class="past">
+          <div class="row">
+              <div class="" id="experience">
+                <span id="exme">  <p id="ex">EXPERIENCE</p></span><br>
+                <div class="row">
+                  <span class="vertical-line"></span>
+					<div class="col-md-8">
+                  		<div class="column" th:each = "experience : ${experience}">
+
+                    		<div id="ex1" class="row">
+                   			 	<p th:text  = "${experience.beginningDate}" ></p> 
+                    			<p>-</p>  
+                    			<p th:text  = "${experience.endingDate}"></p>
+                    		</div>
+                    		<div class="some" style=""></div>
+                    		<br>
+                    				<p id="ex1company" th:text  = "${experience.company}"></p>
+                    				<p id="ex1position" th:text  = "${experience.position}"></p>
+									<p id="ex1department" th:text  = "${experience.department}"></p>
+									<ul id="ex1list">
+	                     				<li  th:each = "jobR : ${experience.jobRes}"  th:text  = "${jobR.responsibility}"></li>
+                    				</ul>
+                    	</div>
+              </div>
+           </div>
+           </div>
+            
+            <div class="row">
+              <div class="" id="education">
+                <span id="edme">  <p id="ed">EDUCATION</p></span><br>
+                
+                <div class=row>
+                
+                  <span class="vertical-line2"></span>
+                  <div class="col-md-4">
+                  <div class="column" th:each = "education : ${education}">
+                    <div id="ed1Year" class="row">  
+                     <p th:text  = "${education.beginningDate}" ></p> 
+                    <p>-</p>  
+                    <p th:text  = "${education.endingDate}"></p>
+                    </div>
+                    <br>
+                    <div class="some2" style=""></div>
+                    <p id="ed1Title" th:text  = "${education.specialty}"></p>
+                    <p id="ed1" th:text  = "${education.information}"> </p>
+                    </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              
+              
+          </div>
+        </div>
+
+
+        <div class="language" >
+          <div class="row" >
+            <div class="lang" >
+              <span id="langme" >  <p id="language">LANGUAGE SKILLS</p></span><br>
+              <p id="lang1"> Azerbaijani </p>
+              <div class="dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="lang2" >
+                <p id="lang2"> English </p>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dott"></span>
+                <span class="dott"></span>
+                <span class="dott"></span>
+                <span class="dott"></span>
+              </div>
+            </div>
+          </div>
+
+          <div class="row">
+
+
+            <div class="lang">
+              <p id="lang3"> Turkish </p>
+              <div class="dots">
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dott"></span>
+                <span class="dott"></span>
+                <span class="dott"></span>
+              </div>
+            </div>
+
+            <div class="row">
+              <div class="lang4">
+                <p id="lang4"> Russian </p>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+                <span class="dott"></span>
+                <span class="dott"></span>
+                <span class="dott"></span>
+                <span class="dott"></span>
+                <span class="dott"></span>
+                <span class="dott"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="">
+          <div class="skills" >
+            <span id="codeme" > <p id="code">CODING SKILLS</p></span><br>
+            <div th:each = "codingSkill : ${codingSkill}">
+            <p class="skill1"  th:text="${codingSkill.skill}"></p>
+            <div class="percentage" >
+              <div class="skill" th:id="${codingSkill.skillClass}"  th:text="${codingSkill.percentage}"></div>
+            </div>
+			</div>
+          </div>
+        </div>
+
+
+        <div class="">
+          <div class="know">
+
+            <span id="knowme"> <p id="knowledge">KNOWLEDGE</p></span><br>
+            <div class="row" th:each = "knowledge : ${knowledge}">
+              <span class="w3-xlarge" ><i class="fa fa-check" ></i></span>
+              <p class="knowledge" th:text="${knowledge.knowledge}"></p>
+            </div>
+          </div>
+        </div>
+
+
+
+
+        <div class="row">
+          <div class="interest">
+            <span id="interestme"> <p id="interest">INTERESTS</p></span><br>
+            <div class="row">
+            	<div class="col-md-6" th:each = "interest : ${interest}">
+            		<div class="row">
+              		<span class="w3-xlarge"><i th:class="${interest.iconClass}"></i></span>
+             	 	<p class="interest" th:text="${interest.interest}"></p>
+              		</div>
+            	</div>
+            </div>
+          </div>
+        </div>
+        
+
+    </div>
+    
+
+
+     
+      
+      <footer class="footer">
+  <div class="copy"><p>© 2020 Ayna Amrahova. All rights reserved. <br> Inspired by:
+    <a target="" id="glitche" href="https://glitche.bslthemes.com/"> glitche.bslthemes.com </a> </p>
+  </div>
+</footer>
+      <br>
+    </body>
+    </html>

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html  lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+  <link rel = "stylesheet" th:href="@{/home.css}"/>
+  <link rel='stylesheet' id='glitche-fonts-css'
+  href='https://fonts.googleapis.com/css?family=Roboto+Mono%3A400%2C100%2C300italic%2C300%2C100italic%2C400italic%2C500%2C500italic%2C700%2C700italic%7CRoboto%3A100%2C100italic%2C300%2C300italic%2C400%2C400italic%2C500%2C500italic%2C700%2C700italic%2C900%2C900italic&#038;subset=latin%2Clatin-ext'
+  type='text/css' media='all' />
+  <title>Home</title>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+  <script type="text/javascript" th:src="@{/home.js}">  </script>
+</head>
+<body style="background-color: #31313A;">
+
+<div id="left"></div>
+<div id="right"></div>
+<div id="top"></div>
+<div id="bottom">
+	
+	<div class="row">
+	<div th:each = "logo : ${logo}">
+      <a target="" th:href="${logo.link}">
+        <img th:src="@{/images/{image}(image=${logo.imgPath})}" th:id="${logo.name}">
+      </a>
+      </div>
+    </div>
+	
+</div>
+
+						
+<div class="header" id="header">
+<div class="nav" id="nav">
+  <p id="nav1"><a target="" id="nav1" href="http://localhost:9080/ResumeProject/home"> Home  </a> </p>
+  <p id="nav2"><a target="" id="nav2" href="http://localhost:9080/ResumeProject/resume"> Resume  </a> </p>
+  <p id="nav4"><a target="" id="nav4" href="http://localhost:9080/ResumeProject/contact"> Contact  </a> </p>
+</div>
+</div>
+
+
+    
+    
+
+<div class="started-content">
+  <h1 class="h-title glitch-effect" data-text="I'M AYNA AMRAHOVA" id="span1">I'M AYNA AMRAHOVA</h1>
+  <div class="h-subtitles">
+
+  <p class="typewrite" data-period="1000" data-type='[ "Junior Web Developer.", "I Love to Develop.", "Junior Software/Java Developer." ]'>
+    <span class="wrap"></span>
+  </p>
+  
+</div>
+</div>
+
+							
+
+<footer class="footer">
+  <div class="copy"><p>© 2020 Ayna Amrahova. All rights reserved. <br> Inspired by:
+    <a target="" id="glitche" href="https://glitche.bslthemes.com/"> glitche.bslthemes.com </a> </p>
+  </div>
+  <br>
+</footer>
+
+</body>
+</html>
